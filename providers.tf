@@ -17,6 +17,8 @@ locals {
   instance_display_name = local.config.instance_display_name
   source_id_arm         = local.config.source_id_arm
   source_id_x86         = local.config.source_id_x86
+  default_password      = local.config.default_password
+  public_key_path       = local.config.public_key_path
 }
 
 terraform {
