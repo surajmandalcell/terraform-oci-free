@@ -23,12 +23,12 @@ function update_ssh_config {
         # If the host entry already exists, update the HostName line
         sed -i '' -e "s/^ *HostName.*/    HostName $host_name/" ~/.ssh/config
     else
+        echo "" >> ~/.ssh/config
         # If the host entry does not exist, add it to the .ssh/config file
         echo "Host $host" >> ~/.ssh/config
         echo "    HostName $host_name" >> ~/.ssh/config
         echo "    User ubuntu" >> ~/.ssh/config
         echo "    IdentityFile $private_key_path" >> ~/.ssh/config
-        echo "" >> ~/.ssh/config
     fi
 }
 
