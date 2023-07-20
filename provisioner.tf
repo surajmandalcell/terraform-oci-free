@@ -23,3 +23,12 @@
 #     ]
 #   }
 # }
+
+resource "null_resource" "ssh_config" {
+  depends_on = [oci_core_instance.instance-1, oci_core_instance.instance-2, oci_core_instance.instance-3]
+
+  provisioner "local-exec" {
+    command     = "chmod +x local.sh && ./local.sh"
+    working_dir = path.module
+  }
+}

@@ -37,10 +37,6 @@ resource "oci_core_instance" "instance-1" {
     boot_volume_size_in_gbs = 50
   }
 
-  lifecycle {
-    prevent_destroy = true
-  }
-
   agent_config {
     is_management_disabled = "false"
     is_monitoring_disabled = "false"
@@ -57,6 +53,10 @@ resource "oci_core_instance" "instance-1" {
       name          = "Bastion"
     }
   }
+
+  # lifecycle {
+  #   prevent_destroy = true
+  # }
 }
 
 resource "oci_core_instance" "instance-2" {
@@ -104,6 +104,10 @@ resource "oci_core_instance" "instance-2" {
       name          = "Bastion"
     }
   }
+
+  # lifecycle {
+  #   prevent_destroy = true
+  # }
 }
 
 resource "oci_core_instance" "instance-3" {
@@ -151,4 +155,8 @@ resource "oci_core_instance" "instance-3" {
       name          = "Bastion"
     }
   }
+
+  # lifecycle {
+  #   prevent_destroy = true
+  # }
 }

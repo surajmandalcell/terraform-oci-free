@@ -1,6 +1,6 @@
 locals {
-  config = var.toronto
-  # config = var.hyderabad
+  # config = var.toronto
+  config = var.hyderabad
   # config = var.example_zone
   # OCI
   tenancy_ocid        = local.config.tenancy_ocid
