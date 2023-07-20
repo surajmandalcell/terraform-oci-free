@@ -1,5 +1,4 @@
 locals {
-  # config = var.toronto
   config = var.hyderabad
   # config = var.example_zone
   # OCI

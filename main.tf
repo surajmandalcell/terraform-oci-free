@@ -54,6 +54,11 @@ resource "oci_core_instance" "instance-1" {
     }
   }
 
+  metadata = {
+    ssh_authorized_keys = file(local.public_key_path)
+    user_data           = base64encode(local.script_1)
+  }
+
   # lifecycle {
   #   prevent_destroy = true
   # }
