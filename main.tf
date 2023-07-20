@@ -1,6 +1,7 @@
 locals {
   script_1 = <<-EOF
       #!/bin/bash
+      echo "ubuntu:${local.default_password}" | sudo chpasswd
       sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
       sudo service ssh restart
     EOF
@@ -24,9 +25,10 @@ resource "oci_core_instance" "instance-1" {
   }
 
   create_vnic_details {
-    subnet_id        = oci_core_subnet.subnet.id
-    display_name     = "arm-vnic"
-    assign_public_ip = true
+    subnet_id                 = oci_core_subnet.subnet.id
+    display_name              = "arm-vnic"
+    assign_public_ip          = true
+    assign_private_dns_record = true
   }
 
   source_details {
@@ -69,9 +71,10 @@ resource "oci_core_instance" "instance-2" {
   }
 
   create_vnic_details {
-    subnet_id        = oci_core_subnet.subnet.id
-    display_name     = "x86-vnic-1"
-    assign_public_ip = true
+    subnet_id                 = oci_core_subnet.subnet.id
+    display_name              = "x86-vnic-1"
+    assign_public_ip          = true
+    assign_private_dns_record = true
   }
 
   source_details {
@@ -79,24 +82,6 @@ resource "oci_core_instance" "instance-2" {
     source_id               = local.source_id_x86
     boot_volume_size_in_gbs = 50
   }
-
-  # connection {
-  #   type        = "ssh"
-  #   host        = self.public_ip
-  #   user        = "ubuntu"
-  #   private_key = file(local.private_key_path)
-  #   timeout     = 1
-  #   password    = local.default_password
-  # }
-
-  # provisioner "remote-exec" {
-  #   inline = [
-  #     "echo Inside the x86 instance 1",
-  #     "echo 'Username: $(whoami)'",
-  #     "echo 'IP Address: $(curl -s http://ifconfig.net)'",
-  #     "echo 'Hostname: $(hostname)'",
-  #   ]
-  # }
 
   metadata = {
     ssh_authorized_keys = file(local.public_key_path)
@@ -133,9 +118,10 @@ resource "oci_core_instance" "instance-3" {
   }
 
   create_vnic_details {
-    subnet_id        = oci_core_subnet.subnet.id
-    display_name     = "x86-vnic-2"
-    assign_public_ip = true
+    subnet_id                 = oci_core_subnet.subnet.id
+    display_name              = "x86-vnic-2"
+    assign_public_ip          = true
+    assign_private_dns_record = true
   }
 
   source_details {
