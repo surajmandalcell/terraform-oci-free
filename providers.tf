@@ -1,6 +1,5 @@
 locals {
-  config = var.hyderabad
-  # config = var.example_zone
+  config = var.zone
   # OCI
   tenancy_ocid        = local.config.tenancy_ocid
   user_ocid           = local.config.user_ocid

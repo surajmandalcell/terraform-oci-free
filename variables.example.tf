@@ -1,5 +1,4 @@
-# Remove "example_" from the variable name
-
+# Remove "example_" from the variable name and fill in the values
 variable "example_zone" { # Replace with your oci zone
   type = any
   default = {

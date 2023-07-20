@@ -19,7 +19,7 @@ function update_ssh_config {
     local host=$1
     local host_name=$2
     
-    if grep -q "Host $host" ~/.ssh/config; then
+    if grep -q "^Host $host$" ~/.ssh/config; then
         # If the host entry already exists, update the HostName line
         sed -i '' -e "s/^ *HostName.*/    HostName $host_name/" ~/.ssh/config
     else
