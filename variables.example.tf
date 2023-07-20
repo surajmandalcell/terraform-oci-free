@@ -1,21 +1,6 @@
-# Remove _example from the variable name
+# Remove "example_" from the variable name
 
-variable "example_backend" {
-  default = {
-    bucket                      = "<Bucket>"
-    key                         = "<Key/PathOnBucket>"
-    region                      = "<Region>"
-    endpoint                    = "https://<Namespace>.compat.objectstorage.<Region>.oraclecloud.com"
-    access_key                  = "<AccessKey>"
-    secret_key                  = "<SecretKey>"
-    skip_region_validation      = true
-    skip_credentials_validation = true
-    skip_metadata_api_check     = true
-    force_path_style            = true
-  }
-}
-
-variable "example_zone" {
+variable "example_zone" { # Replace with your oci zone
   type = any
   default = {
     tenancy_ocid          = ""
