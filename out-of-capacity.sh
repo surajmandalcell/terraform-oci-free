@@ -21,7 +21,7 @@ while true; do
     
     # Ask for user input to check if they want to terminate the script.
     echo "Press 'q' and Enter to terminate the script gracefully."
-    read -t $delay -n 1 input
+    read -t $delay -n 0 input
     if [[ $input = "q" ]]; then
         echo "Terminating script gracefully..."
         break;
