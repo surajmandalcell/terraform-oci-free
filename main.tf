@@ -65,8 +65,6 @@ resource "oci_core_instance" "instance-1" {
 }
 
 resource "oci_core_volume_attachment" "attachment-instance-1" {
-  availability_domain = local.availability_domain
-  compartment_id      = local.compartment_id
   display_name        = "BlockVolumeAttachmentInstance1"
   instance_id         = oci_core_instance.instance-1.id
   volume_id           = oci_core_volume.block-volume-1.id
