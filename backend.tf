@@ -3,6 +3,6 @@
 terraform {
   backend "gcs" {
     bucket = "suraj-personal.appspot.com"
-    prefix = "terraform/state-tor"
+    prefix = "terraform/state-hyd"
   }
 }

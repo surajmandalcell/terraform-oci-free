@@ -19,7 +19,13 @@ This repository contains Terraform modules and examples to provision Oracle Clou
 7. `terraform apply -auto-approve`
 8. Use the `out-of-capacity.sh` script to retry the `terraform apply` command until it succeeds.
 
-## Cleanup
+# Check Output Later
+
+```
+terraform output
+```
+
+## Cleanup/Destroy Resources
 
 1. `terraform destroy -auto-approve`
 
